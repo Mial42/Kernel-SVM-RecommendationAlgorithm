@@ -1,0 +1,80 @@
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{subfigure}
+\usepackage{hyperref}
+
+\title{CS416 -- HW3}
+\author{Name, login id}
+\date{}
+\setlength\parindent{0pt}
+\setlength{\parskip}{0.5em}
+
+\begin{document}
+
+\maketitle
+
+\section{Kernel (10 points)}
+Suppose $x,z\in \mathbb{R}^d$, and let's consider the following function
+
+$$K(x,z)=(x^T z)^2
+$$
+Let's prove $K(x,z)$ is the kernel function corresponding to the feature mapping $\phi$ give by 
+
+$$
+\phi(x)=
+\begin{bmatrix}
+x_1x_1\\
+x_1x_2\\
+%x_1x_3\\
+\cdots\\
+x_1x_d\\
+x_2x_1\\
+x_2x_2\\
+\cdots\\
+x_2x_d\\
+\cdots\\
+x_dx_1\\
+\cdots\\
+x_dx_d
+\end{bmatrix}
+$$
+
+The proof is very simple. We merely check that $K(x,z)=<\phi(x), \phi(z)>$
+
+$$
+K(x,z) = (\sum^d_{i=1}x_i z_i) (\sum^d_{i=1}x_j z_j)
+=\sum^d_{i=1}\sum^d_{j=1}x_ix_jz_iz_j=\sum^d_{i,j=1} (x_ix_j)(z_iz_j)=<\phi(x), \phi(z)>
+$$
+
+Please show what feature mapping the  following kernel function corresponds to and prove the kernel function corresponds to the feature mapping. Show the running time of computing the kernel function of two vectors and that of computing the inner product of two vectors.  
+
+$$
+K(x,z)=(x^T z+1)^3
+$$
+
+
+\section{SVM (5 points + 10 points)}
+
+1. Suppose you are given the following training data 
+
+positive: (1,2,3) (1,1,4) \\
+negative: (3,2,-1) (4,3,-2) (3,5,-3)
+
+Write down the SVM optimization for those training data including the optimization objective and the constraints. 
+
+2. Suppose you are given the following training data 
+
+positive: (1,2) (1,1) (2,1) (0,1)\\
+negative: (3,2) (4,3) (3,5)
+
+Which points are support vectors? What is the decision boundary if you use SVM? In this problem, you can simply look at the points and decide which points are support vectors and then calculate the decision boundary. 
+
+
+
+
+\end{document}
